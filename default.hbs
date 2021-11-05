@@ -91,7 +91,7 @@
     crossorigin="anonymous">
 </script>
 <script defer src="{{asset "built/casper.js"}}"></script>
-<script>
+<script defer src="data:text/javascript,
 $(document).ready(function () {
     // Mobile Menu Trigger
     $('.gh-burger').click(function () {
@@ -100,7 +100,7 @@ $(document).ready(function () {
     // FitVids - Makes video embeds responsive
     $(".gh-content").fitVids();
 });
-</script>
+"/>
 
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
