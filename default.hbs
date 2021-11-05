@@ -92,15 +92,14 @@
 </script>
 <script defer src="{{asset "built/casper.js"}}"></script>
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-    (function($) {
-        // Mobile Menu Trigger
-        $('.gh-burger').click(function () {
-            $('body').toggleClass('gh-head-open');
-        });
-        // FitVids - Makes video embeds responsive
-        $(".gh-content").fitVids();
-    })(jQuery);
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
 </script>
 
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
