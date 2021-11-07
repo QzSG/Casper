@@ -77,18 +77,25 @@ into the {body} tag of the default.hbs template --}}
 
         <section class="article-comments gh-canvas">
             <div id="disqus_recommendations" style="display: none !important;"></div>
-            <div id="disqus_thread" style="padding: 0.5vw 1vw 0.5vw 1vw;border-radius: 1.5vw; background: white;"></div>
+            <div id="disqus_thread" style="padding: 0.5vw 1vw 0.5vw 1vw;border-radius: 1.5vw; background: white; min-height: 10px;"></div>
             <script type="module">
                 var disqus_config = function () {
                     this.page.url = "{{url absolute="true"}}";
                     this.page.identifier = "ghost-{{comment_id}}"
                 };
-                (function() {
-                var d = document, s = d.createElement('script');
-                s.src = 'https://qzsg-blog.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                })();
+                var disqus_observer = new IntersectionObserver(function(entries) {
+                    if(entries[0].isIntersecting) {
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://qzsg-blog.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                        // once executed, stop observing
+                        disqus_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                disqus_observer.observe(document.querySelector("#disqus_thread"));
             </script>
         </section>
 
