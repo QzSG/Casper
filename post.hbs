@@ -78,7 +78,7 @@ into the {body} tag of the default.hbs template --}}
         <section class="article-comments gh-canvas">
             <div id="disqus_recommendations" style="display: none !important;"></div>
             <div id="disqus_thread" style="padding: 0.5vw 1vw 0.5vw 1vw;border-radius: 1.5vw; background: white;"></div>
-            <script>
+            <script type="module">
                 var disqus_config = function () {
                     this.page.url = "{{url absolute="true"}}";
                     this.page.identifier = "ghost-{{comment_id}}"
