@@ -148,6 +148,18 @@
                 ],
                 "default": "Light"
             },
+            "header_button_background": {
+                "type": "color",
+                "default": "#ffffff"
+            },
+            "header_button_text_color": {
+                "type": "select",
+                "options": [
+                    "Light",
+                    "Dark"
+                ],
+                "default": "Dark"
+            },
             "post_image_style": {
                 "type": "select",
                 "options": [
